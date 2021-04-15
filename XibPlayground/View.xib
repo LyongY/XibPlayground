@@ -31,33 +31,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="op2-VO-ZW0" customClass="MaskView">
                     <rect key="frame" x="0.0" y="0.0" width="350" height="555"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAS-JJ-NgM" customClass="MaskInfo">
-                            <rect key="frame" x="22" y="19" width="42" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="fromLocation">
-                                    <integer key="value" value="3"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="increase">
-                                    <real key="value" value="20"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="6"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="fromDirection">
-                                    <integer key="value" value="2"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="fromOffset">
-                                    <real key="value" value="0.0"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <outlet property="item" destination="cp6-06-tAc" id="tmb-h3-wos"/>
-                            </connections>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SegmentInfo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuF-M0-8rf" customClass="MaskInfo">
                             <rect key="frame" x="65" y="364" width="98" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -69,14 +42,49 @@
                                     <real key="value" value="0.0"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="toDirection">
-                                    <integer key="value" value="2"/>
+                                    <integer key="value" value="0"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="toLocation">
-                                    <integer key="value" value="3"/>
+                                    <integer key="value" value="0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="fromLocation">
+                                    <integer key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="increase">
+                                    <real key="value" value="10"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <outlet property="item" destination="wKq-mV-2xB" id="Qa6-xd-sjv"/>
+                            </connections>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAS-JJ-NgM" customClass="MaskInfo">
+                            <rect key="frame" x="80.5" y="175" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="fromLocation">
+                                    <integer key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="increase">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="fromDirection">
+                                    <integer key="value" value="0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="fromOffset">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="toLocation">
+                                    <integer key="value" value="0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outlet property="item" destination="cp6-06-tAc" id="tmb-h3-wos"/>
                             </connections>
                         </label>
                     </subviews>
@@ -87,8 +95,10 @@
             <color key="backgroundColor" systemColor="systemPinkColor"/>
             <constraints>
                 <constraint firstItem="op2-VO-ZW0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="I3W-C9-GWe"/>
+                <constraint firstItem="hAS-JJ-NgM" firstAttribute="centerX" secondItem="cp6-06-tAc" secondAttribute="centerX" id="IL1-yL-Qhp"/>
                 <constraint firstItem="cp6-06-tAc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="63" id="NHn-Uu-CPC"/>
                 <constraint firstItem="op2-VO-ZW0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Yo0-3E-yGZ"/>
+                <constraint firstItem="hAS-JJ-NgM" firstAttribute="top" secondItem="cp6-06-tAc" secondAttribute="bottom" constant="50" id="Yx7-uI-d9t"/>
                 <constraint firstItem="op2-VO-ZW0" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-10" id="d67-fq-lph"/>
                 <constraint firstItem="cp6-06-tAc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="60" id="maE-0d-ybc"/>
                 <constraint firstItem="op2-VO-ZW0" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-10" id="naW-OX-Opg"/>

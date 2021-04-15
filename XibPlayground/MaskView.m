@@ -33,10 +33,10 @@
             [item drawAssociateWithHollowOutPath:hollowOut];
         }
     }
-//    [hollowOut fillWithBlendMode:kCGBlendModeClear alpha:1];
+    [hollowOut fillWithBlendMode:kCGBlendModeClear alpha:1];
     
     [UIColor.whiteColor set];
-    hollowOut.lineWidth = 0.33334;
+    hollowOut.lineWidth = 2;
     [hollowOut stroke];
 }
 
