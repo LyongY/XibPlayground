@@ -27,46 +27,17 @@
     UIBezierPath *background = [UIBezierPath bezierPathWithRect:rect];
     [background fill];
 
-    UIBezierPath *hollowOut = [UIBezierPath bezierPathWithRect:CGRectZero];
-//    [background setUsesEvenOddFillRule:YES];
-    
+    UIBezierPath *hollowOut = [UIBezierPath bezierPathWithRect:CGRectZero];    
     for (MaskInfo *item in self.subviews) {
-        if ([item respondsToSelector:@selector(drawAssociateWithMaskPath:)]) {
-            [item drawAssociateWithMaskPath:hollowOut];
+        if ([item respondsToSelector:@selector(drawAssociateWithHollowOutPath:)]) {
+            [item drawAssociateWithHollowOutPath:hollowOut];
         }
     }
+//    [hollowOut fillWithBlendMode:kCGBlendModeClear alpha:1];
+    
+    [UIColor.whiteColor set];
+    hollowOut.lineWidth = 0.33334;
+    [hollowOut stroke];
 }
 
-/**
- {
-     kCGBlendModeNormal,
-     kCGBlendModeMultiply,
-     kCGBlendModeScreen,
-     kCGBlendModeOverlay,
-     kCGBlendModeDarken,
-     kCGBlendModeLighten,
-     kCGBlendModeColorDodge,
-     kCGBlendModeColorBurn,
-     kCGBlendModeSoftLight,
-     kCGBlendModeHardLight,
-     kCGBlendModeDifference,
-     kCGBlendModeExclusion,
-     kCGBlendModeHue,
-     kCGBlendModeSaturation,
-     kCGBlendModeColor,
-     kCGBlendModeLuminosity,
-     kCGBlendModeClear,
-     kCGBlendModeCopy,
-     kCGBlendModeSourceIn,
-     kCGBlendModeSourceOut,
-     kCGBlendModeSourceAtop,
-     kCGBlendModeDestinationOver,
-     kCGBlendModeDestinationIn,
-     kCGBlendModeDestinationOut,
-     kCGBlendModeDestinationAtop,
-     kCGBlendModeXOR,
-     kCGBlendModePlusDarker,
-     kCGBlendModePlusLighter
- }
- */
 @end

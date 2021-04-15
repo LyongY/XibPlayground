@@ -46,8 +46,13 @@ IB_DESIGNABLE
 #endif
 @property (nonatomic, assign) IBInspectable CGFloat toOffset;
 
+/// 镂空四周增加量
+@property (nonatomic, assign) IBInspectable CGFloat increase;
+/// 镂空圆角
+@property (nonatomic, assign) IBInspectable CGFloat cornerRadius;
 
-- (void)drawAssociateWithMaskPath:(UIBezierPath *)maskPath;
+
+- (void)drawAssociateWithHollowOutPath:(UIBezierPath *)hollowOutPath;
 @end
 
 NS_ASSUME_NONNULL_END
