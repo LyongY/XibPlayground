@@ -32,10 +32,11 @@
     
     // 镂空
     {
-        CGRect frame = CGRectMake(self.item.frame.origin.x - self.increase / 2,
-                                  self.item.frame.origin.y - self.increase / 2,
-                                  self.item.frame.size.width + self.increase,
-                                  self.item.frame.size.height + self.increase);
+        CGRect frame = [self.item convertRect:self.item.bounds toView:self.superview];
+        frame.origin.x -= self.increase / 2;
+        frame.origin.y -= self.increase / 2;
+        frame.size.width += self.increase;
+        frame.size.height += self.increase;
         UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:frame cornerRadius:self.cornerRadius];
         [hollowOutPath appendPath:path];
     }
@@ -64,50 +65,51 @@
 }
 
 - (CGPoint)fromePoint {
+    CGRect itemFrame = [self.item convertRect:self.item.bounds toView:self.superview];
     CGPoint fromPoint = CGPointZero;
     if (self.fromLocation == MaskInfoLocationTop || self.fromLocation == MaskInfoLocationBottom) {
         // 上下边
         if (self.fromLocation == MaskInfoLocationTop) {
             // self.increase + 8 为了使圆圈分离一点
-            fromPoint.y = self.item.frame.origin.y - (self.increase + 8) / 2;
+            fromPoint.y = itemFrame.origin.y - (self.increase + 8) / 2;
         } else if (self.fromLocation == MaskInfoLocationBottom) {
-            fromPoint.y = self.item.frame.origin.y + self.item.frame.size.height + (self.increase + 8) / 2;
+            fromPoint.y = itemFrame.origin.y + itemFrame.size.height + (self.increase + 8) / 2;
         }
         if (self.fromDirection == MaskInfoDirectionCenter) {
             fromPoint.x = self.item.center.x + self.fromOffset;
         } else if (self.fromDirection == MaskInfoDirectionClockwise) {
             if (self.fromLocation == MaskInfoLocationTop) {
-                fromPoint.x = self.item.frame.origin.x + self.fromOffset;
+                fromPoint.x = itemFrame.origin.x + self.fromOffset;
             } else if (self.fromLocation == MaskInfoLocationBottom) {
-                fromPoint.x = self.item.frame.origin.x + self.item.frame.size.width - self.fromOffset;
+                fromPoint.x = itemFrame.origin.x + itemFrame.size.width - self.fromOffset;
             }
         } else {
             if (self.fromLocation == MaskInfoLocationTop) {
-                fromPoint.x = self.item.frame.origin.x + self.item.frame.size.width - self.fromOffset;
+                fromPoint.x = itemFrame.origin.x + itemFrame.size.width - self.fromOffset;
             } else if (self.fromLocation == MaskInfoLocationBottom) {
-                fromPoint.x = self.item.frame.origin.x + self.fromOffset;
+                fromPoint.x = itemFrame.origin.x + self.fromOffset;
             }
         }
     } else {
         // 左右边
         if (self.fromLocation == MaskInfoLocationRight) {
-            fromPoint.x = self.item.frame.origin.x + self.item.frame.size.width + (self.increase + 8) / 2;
+            fromPoint.x = itemFrame.origin.x + itemFrame.size.width + (self.increase + 8) / 2;
         } else if (self.fromLocation == MaskInfoLocationLeft) {
-            fromPoint.x = self.item.frame.origin.x - (self.increase + 8) / 2;
+            fromPoint.x = itemFrame.origin.x - (self.increase + 8) / 2;
         }
         if (self.fromDirection == MaskInfoDirectionCenter) {
             fromPoint.y = self.item.center.y + self.fromOffset;
         } else if (self.fromDirection == MaskInfoDirectionClockwise) {
             if (self.fromLocation == MaskInfoLocationRight) {
-                fromPoint.y = self.item.frame.origin.y + self.fromOffset;
+                fromPoint.y = itemFrame.origin.y + self.fromOffset;
             } else if (self.fromLocation == MaskInfoLocationLeft) {
-                fromPoint.y = self.item.frame.origin.y + self.item.frame.size.height - self.fromOffset;
+                fromPoint.y = itemFrame.origin.y + itemFrame.size.height - self.fromOffset;
             }
         } else {
             if (self.fromLocation == MaskInfoLocationRight) {
-                fromPoint.y = self.item.frame.origin.y + self.item.frame.size.height - self.fromOffset;
+                fromPoint.y = itemFrame.origin.y + itemFrame.size.height - self.fromOffset;
             } else if (self.fromLocation == MaskInfoLocationLeft) {
-                fromPoint.y = self.item.frame.origin.y + self.fromOffset;
+                fromPoint.y = itemFrame.origin.y + self.fromOffset;
             }
         }
     }
